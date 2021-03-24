@@ -1,0 +1,76 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>我的计算器</title>
+    <script src="jquery-1.9.1.min.js"></script>
+    <script>
+        function myck(type) {
+            var inputNumber1 =jQuery("#number1");
+            var inputNumber2 = jQuery("#number2");
+            var inputEnd = jQuery("#result");
+            if(type==1){
+                if(inputNumber1.val().trim()==""){
+                    alert("输入不能为空");
+                    return false;
+                }
+                if(inputNumber2.val().trim()==""){
+                    alert("输入不能为空");
+                    return false;
+                }
+                var end = parseInt(inputNumber1.val()) + parseInt(inputNumber2.val());
+                inputEnd.html("<p style='background-color: aqua'>最终结果：<strong style='color:red'>"+end+"</strong></p>");
+            }
+            if(type==2){
+                if(inputNumber1.val().trim()==""){
+                    alert("输入不能为空");
+                    return false;
+                }
+                if(inputNumber2.val().trim()==""){
+                    alert("输入不能为空");
+                    return false;
+                }
+                var end = parseInt(inputNumber1.val()) - parseInt(inputNumber2.val());
+                inputEnd.html("<p style='background-color: aqua'>最终结果：<strong style='color:red'>"+end+"</strong></p>");
+            }
+            if(type==3){
+                if(inputNumber1.val().trim()==""){
+                    alert("输入不能为空");
+                    return false;
+                }
+                if(inputNumber2.val().trim()==""){
+                    alert("输入不能为空");
+                    return false;
+                }
+                var end = parseInt(inputNumber1.val()) * parseInt(inputNumber2.val());
+                inputEnd.html("<p style='background-color: aqua'>最终结果：<strong style='color:red'>"+end+"</strong></p>");
+            }
+            if(type==4){
+                if(confirm("是否确认清空")){
+                    inputNumber1.val("");
+                    inputNumber2.val("");
+                    alert("清空完毕");
+                }
+                inputEnd.html("");
+            }
+        }
+    </script>
+</head>
+<body>
+<div style="text-align: center;margin-top: 100px">
+    <h1><strong>计算器</strong></h1><p></p>
+    <div>
+        数字1：<input id="number1" name="num1" type="number"><p></p>
+        数字1：<input id="number2" name="num2" type="number"><p></p>
+    </div>
+    <div>
+        <input type="button" value="相加" onclick="myck(1)">
+        <input type="button" value="相减" onclick="myck(2)">
+        <input type="button" value="相乘" onclick="myck(3)">
+        <input type="button" value="清空" onclick="myck(4)">
+    </div>
+    <div id="result">
+
+    </div>
+</div>
+</body>
+</html>
