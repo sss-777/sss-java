@@ -27,7 +27,7 @@
                 }
                 if(inputNumber2.val().trim()==""){
                     alert("输入不能为空");
-                    return false;
+                    return false; 
                 }
                 var end = parseInt(inputNumber1.val()) - parseInt(inputNumber2.val());
                 inputEnd.html("<p style='background-color: aqua'>最终结果：<strong style='color:red'>"+end+"</strong></p>");
