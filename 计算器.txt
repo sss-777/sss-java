@@ -13,7 +13,7 @@
                     alert("输入不能为空");
                     return false;
                 }
-                if(inputNumber2.val().trim()==""){
+                if(inputNumber2.val().trim()==""){  
                     alert("输入不能为空");
                     return false;
                 }
