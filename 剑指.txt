@@ -1,0 +1,36 @@
+输入两棵二叉树A，B，判断B是不是A的子结构。（ps：我们约定空树不是任意一个树的子结构）
+public class Solution {
+    public boolean HasSubtree(TreeNode root1,TreeNode root2) {
+        if(root1 == null || root2 == null){
+            return false;
+        }
+        return isHasSubtree(root1,root2) || HasSubtree(root1.left,root2) || HasSubtree(root1.right,root2);
+    }
+    public boolean isHasSubtree(TreeNode root1,TreeNode root2){
+        if(root2==null) return true;
+        if(root1==null) return false;
+        return root1.val==root2.val && isHasSubtree(root1.left,root2.left) && isHasSubtree(root1.right,root2.right);
+    }
+}
+操作给定的二叉树，将其变换为源二叉树的镜像。
+public class Solution {
+    /**
+     * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
+     *
+     * 
+     * @param pRoot TreeNode类 
+     * @return TreeNode类
+     */
+    public TreeNode Mirror (TreeNode pRoot) {
+        // write code here
+        if(pRoot==null){
+            return pRoot;
+        }
+        TreeNode tmp = pRoot.left;
+        pRoot.left = pRoot.right;
+        pRoot.right=tmp;
+        Mirror(pRoot.left);
+        Mirror(pRoot.right);
+        return pRoot;
+    }
+}
